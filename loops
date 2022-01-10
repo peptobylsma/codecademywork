@@ -1,0 +1,34 @@
+let bobsFollowers = ['a', 'b', 'c', 'd'];
+let tinasFollowers = ['a','c','e'];
+let mutualFollowers = [];
+
+for(let i = 0; i < bobsFollowers.length; i++){ // i starts at 0, iterates through 3
+
+  for(let j = 0; j < tinasFollowers.length; j++){ //runs each time the outer loop iterates
+
+    if(bobsFollowers[i] === tinasFollowers[j]){ // each time outer loop runs, it will check if THE VALUE at the indexed position for bobsFollowers matched THE VALUE at the indexed position in tinasFollowers. 
+
+      mutualFollowers.push(bobsFollowers[i]); //part of the if statement, will push any matches into the mutualFollowers array.
+
+    }
+  }
+}
+
+console.log(mutualFollowers[]);// prints the array
+
+
+/* 
+The if statement that pushes data into the mutualFollowers array is still part of the inner for loop, so it will run any time the outer loop iterates. 
+Aha moment - the inner loop runs COMPLETELY for each singular outer loop iteration. So we are comparing i = 0 to j = 0, j = 1, j = 2.
+
+i = 0 ('a')
+ ~ j = 0, stop condition not met, code runs and will iterate.
+  ~ if statement runs within the inner for loop
+    ~ THE VALUE at i = 0 and j = 0 are both 'a'. There is a match, so this is pushed into the mutualFollowers array. The value at j = 1 and j = 2 do not match the value at i = 0, so they are not pushed into the mutualFollowers array.
+
+i = 1 ('b')
+if statement runs, the value at i = i (which is 'b') does not match any iterations of j=0 thru j=2. No data printed to the mutualFollowers array.
+
+i = 2 ('c')
+if statement runs. the value is i = 2 (which is 'c'). i = 2 matches the iteration at j = 2 in the inner loop. 'c' is pushed to the mutualFollowers array.
+  */
