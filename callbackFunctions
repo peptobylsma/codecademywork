@@ -1,0 +1,36 @@
+/*let calc = function(num1, num2, calcType){
+  if(calcType === 'add'){
+    return num1 + num2;
+  } else if (calcType === 'multiply'){
+    return num1 * num2;
+  } else {
+    console.log('error');
+  }
+}
+
+console.log(calc(4 , 3, 'add'));*/
+
+let add = function(a,b){
+  return a + b;
+}; // creation of the add function
+
+let multiply = function(a, b){
+  return a * b;
+}; // creation of the multiply function
+
+const divide = (a, b) => {
+  return a / b;
+} // creation of the divide function
+
+let error = () => {
+  return 'error';
+} // random return error function to help drive the point home.
+
+let calc = function(num1, num2, callbackFunction){
+  return  callbackFunction(num1, num2);
+} // creation of the calc function
+console.log(calc(4,3, multiply)) //invoke calc function with 4, 3, and divide as arguments.
+
+/*so I believe the AHA moment here is that in our calc function, the one we ultimately want to call to do the thing we want to do, takes one of the above functions as an 
+argument and RUNS THAT FUNCTION while the calc function itself runs. You could put any of the above function names without parenthesis in the "callbackFunction" position
+of calc(a, b, callbackFunction) and it will perform the action of that function. 
