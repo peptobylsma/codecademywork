@@ -44,7 +44,7 @@ Below is the stepwise process that will hopefully help you follow whats happenin
   
 2) Function becomes
   
-        checkConsistentOutput = (addTwo, 5) => {
+        checkConsistentOutput = (addTwo, 5) => { // recall that the syntax for a function call looks like this: functionName();, where any parameters would be inside the ().
 3)      let checkOne = addTwo(5); // assignment of addTwo(5) to the checkOne variable within the checkConsistentOutput function, which would return 5 = 5 + 2. --> 7
 4)      let checkTwo = addTwo(5); // assignment of addTwo(5) to the checkTwo variable within the checkConsistentOutput function, which would return 5 = 5 + 2. --> 7
 5)      if  (checkOne === checkTwo){ // checks that the two variables (which we assigned our "inner functions" to) are equal to each other.
