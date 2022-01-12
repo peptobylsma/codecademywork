@@ -34,3 +34,59 @@ console.log(calc(4,3, multiply)) //invoke calc function with 4, 3, and divide as
 /*so I believe the AHA moment here is that in our calc function, the one we ultimately want to call to do the thing we want to do, takes one of the above functions as an 
 argument and RUNS THAT FUNCTION while the calc function itself runs. You could put any of the above function names without parenthesis in the "callbackFunction" position
 of calc(a, b, callbackFunction) and it will perform the action of that function. 
+
+
+/*Actual codecademy work. Got it to work.
+
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+
+const addTwo = num => num + 2;
+
+const timeFuncRuntime = funcParameter => {
+  let t1 = Date.now();
+  funcParameter();
+  let t2 = Date.now();
+  return t2 - t1;
+};
+
+console.log(timeFuncRuntime(addTwo))
+// Write your code below
+
+let time2p2 = timeFuncRuntime(checkThatTwoPlusTwoEqualsFourAMillionTimes);
+
+const checkConsistentOutput = (functionOne, value) => {
+  let checkOne = functionOne(value); 
+  let checkTwo = functionOne(value);
+  if  (checkOne === checkTwo){
+    return checkOne;
+  } else {
+    return 'This function returned inconsistent results'
+  }
+}
+
+console.log(checkConsistentOutput(addTwo, 5));
+
+Path --> 
+1) Invoke checkConsistentOutput and pass addTwo and 5 into that function.
+2) Function becomes
+  
+    checkConsistentOutput = (addTwo, 5) => {
+3)      let checkOne = addTwo(5); // first check which is invoking addTwo with an argument of 5 within the checkConsistentOutput function. 5 = 5 + 2. --> 7
+4)     let checkTwo = addTwo(5); // second check which is invoking addTwo with an argument of 5 within the checkConsistentOutput function. 5 = 5 + 2. --> 7
+5)      if  (checkOne === checkTwo){ // 7 === 7, so it evaluates to true and checkOne (or the value of 7) is returned
+        return checkOne;
+      } else {
+6)        return 'This function returned inconsistent results' // this does not happen because the if condition was satisfied.
+  }
+
+ 
+ I think a lot of confusion stemmed from nomenclature and syntax issues on top of an already somewhat complicated subject. I also had a hard time visualizing what was going
+ where and didn't understand how a lot of this data was connected. Hopefully 
+ 
+  
