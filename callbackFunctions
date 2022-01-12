@@ -35,7 +35,7 @@ const checkConsistentOutput = (functionOne, value) => {
 
 console.log(checkConsistentOutput(addTwo, 5)); // prints 7
 
-Below is the stepwise process that will hopefully help you follow whats happening througout the execution of this code.
+Below is the stepwise process that will hopefully help you follow whats happening througout the execution of this code once we have invoked checkConsistentOutput();.
 1) First, we invoke the checkConsistentOutput that we created above and pass addTwo and 5 into that function as checkConsistentOutput(addTwo, 5);.
   
   - Since we are invoking the function, it is going to run all of the code inside of its code block with the parameters we've asked it to use.
