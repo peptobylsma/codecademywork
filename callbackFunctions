@@ -1,3 +1,74 @@
+//code from codecademy exercise
+
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+
+const addTwo = num => num + 2;
+
+const timeFuncRuntime = funcParameter => {
+  let t1 = Date.now();
+  funcParameter();
+  let t2 = Date.now();
+  return t2 - t1;
+};
+
+console.log(timeFuncRuntime(addTwo))
+
+// Write your code below (this is our starting point)
+
+let time2p2 = timeFuncRuntime(checkThatTwoPlusTwoEqualsFourAMillionTimes);
+
+const checkConsistentOutput = (functionOne, value) => {
+  let checkOne = functionOne(value); 
+  let checkTwo = functionOne(value);
+  if  (checkOne === checkTwo){
+    return checkOne;
+  } else {
+    return 'This function returned inconsistent results'
+  }
+}
+
+console.log(checkConsistentOutput(addTwo, 5)); // prints 7
+
+Below is the stepwise process that will hopefully help you follow whats happening througout the execution of this code.
+1) First, we invoke the checkConsistentOutput that we created above and pass addTwo and 5 into that function as checkConsistentOutput(addTwo, 5);.
+  
+  - Since we are invoking the function, it is going to run all of the code inside of its code block with the parameters we've asked it to use.
+  - Remember that we do NOT put parenthesis at the end of the function name when we are passing a function as a parameter.
+  - the addTwo() function is kind of hidden up further in the code, that's how we knew what that function was going to do.
+  
+2) Function becomes
+  
+        checkConsistentOutput = (addTwo, 5) => {
+3)      let checkOne = addTwo(5); // assignment of addTwo(5) to the checkOne variable within the checkConsistentOutput function, which would return 5 = 5 + 2. --> 7
+4)      let checkTwo = addTwo(5); // assignment of addTwo(5) to the checkTwo variable within the checkConsistentOutput function, which would return 5 = 5 + 2. --> 7
+5)      if  (checkOne === checkTwo){ // checks that the two variables (which we assigned our "inner functions" to) are equal to each other.
+        return checkOne; // checkOne is returned because the "if" condition is satisfied since checkOne === checkTwo
+      } else {
+6)        return 'This function returned inconsistent results' // this does not happen because the "if" condition was satisfied.
+  }
+
+ 
+ I think a lot of confusion stemmed from nomenclature and syntax issues on top of an already somewhat complicated subject. 
+ It was especially hard (for me at least) to try and follow the functions and variables around the code block and visualize what was actually happening as the code ran.
+ Hopefully, this will help some get a better understanding. If you're frustrated, it's okay - this drove me nuts for several days before I was finally able to wrap
+ my head around it.
+ 
+ - Cheers! 
+
+ 
+  
+
+
+
+
+Practice from YT Video.
+
 /*let calc = function(num1, num2, calcType){
   if(calcType === 'add'){
     return num1 + num2;
@@ -36,57 +107,3 @@ argument and RUNS THAT FUNCTION while the calc function itself runs. You could p
 of calc(a, b, callbackFunction) and it will perform the action of that function. 
 
 
-/*Actual codecademy work. Got it to work.
-
-const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
-  for(let i = 1; i <= 1000000; i++) {
-    if ( (2 + 2) != 4) {
-      console.log('Something has gone very wrong :( ');
-    }
-  }
-};
-
-const addTwo = num => num + 2;
-
-const timeFuncRuntime = funcParameter => {
-  let t1 = Date.now();
-  funcParameter();
-  let t2 = Date.now();
-  return t2 - t1;
-};
-
-console.log(timeFuncRuntime(addTwo))
-// Write your code below
-
-let time2p2 = timeFuncRuntime(checkThatTwoPlusTwoEqualsFourAMillionTimes);
-
-const checkConsistentOutput = (functionOne, value) => {
-  let checkOne = functionOne(value); 
-  let checkTwo = functionOne(value);
-  if  (checkOne === checkTwo){
-    return checkOne;
-  } else {
-    return 'This function returned inconsistent results'
-  }
-}
-
-console.log(checkConsistentOutput(addTwo, 5));
-
-Path --> 
-1) Invoke checkConsistentOutput and pass addTwo and 5 into that function.
-2) Function becomes
-  
-    checkConsistentOutput = (addTwo, 5) => {
-3)      let checkOne = addTwo(5); // first check which is invoking addTwo with an argument of 5 within the checkConsistentOutput function. 5 = 5 + 2. --> 7
-4)     let checkTwo = addTwo(5); // second check which is invoking addTwo with an argument of 5 within the checkConsistentOutput function. 5 = 5 + 2. --> 7
-5)      if  (checkOne === checkTwo){ // 7 === 7, so it evaluates to true and checkOne (or the value of 7) is returned
-        return checkOne;
-      } else {
-6)        return 'This function returned inconsistent results' // this does not happen because the if condition was satisfied.
-  }
-
- 
- I think a lot of confusion stemmed from nomenclature and syntax issues on top of an already somewhat complicated subject. I also had a hard time visualizing what was going
- where and didn't understand how a lot of this data was connected. Hopefully 
- 
-  
